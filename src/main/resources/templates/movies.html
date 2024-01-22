@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Movies</title>
+    <link rel="stylesheet" th:href="@{/css/base.css}"/>
+</head>
+<body>
+<a th:href="@{/movies/export/pdf}">Download list of movies as PDF</a>
+<br>
+<a th:href="@{/createMovie}">Add new movie</a>
+<hr>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Type</th>
+        <th>Country</th>
+        <th>Description</th>
+        <th>Main cast</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="movie : ${movies}">
+        <td th:text="${movie.id}"></td>
+        <td th:text="${movie.title}"></td>
+        <td th:text="${movie.type}"></td>
+        <td th:text="${movie.country}"></td>
+        <td th:text="${movie.shortDescription}"></td>
+        <td th:text="${movie.cast}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Movie</title>
+</head>
+<body>
+<h3>Add details of a new movie</h3>
+
+<form th:action="@{/addMovie}" th:object="${movie}" method="POST">
+
+    Title: <input type="text" th:field="*{title}" placeholder="Enter movie title"/>
+    <br><br>
+
+    Price Code (choose from the drop-down list):
+    <select th:field="*{type}">
+        <option th:each="movietype : ${types}" th:value="${movietype}" th:text="${movietype}" />
+    </select>
+    <br><br>
+
+    Country (choose from the drop-down list):
+    <select th:field="*{country}">
+        <option th:each="country : ${countries}" th:value="${country}" th:text="${country}" />
+    </select>
+    <br><br>
+
+    Short Description:
+    <textarea rows="4" cols="50" th:field="*{shortDescription}" placeholder="Enter description of the movie"></textarea>
+    <br><br>
+
+    Main Cast:
+    <textarea rows="4" cols="50" th:field="*{cast}" placeholder="Enter actors' names separated by comma"></textarea>
+    <br><br>
+
+    <input type="submit" value="Submit"/>
+
+</form>
+</body>
+</html>
