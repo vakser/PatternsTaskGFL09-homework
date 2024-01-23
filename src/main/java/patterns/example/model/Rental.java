@@ -1,19 +1,22 @@
 package patterns.example.model;
 
-class Rental {
-    private final Movie movie;
-    private final int daysRented;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-    public Rental(Movie movie, int daysRented) {
-        this.movie = movie;
-        this.daysRented = daysRented;
-    }
+@Entity
+@Table(name = "rentals")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Rental {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @OneToOne
+    @JoinColumn(name = "movie_id")
+    private Movie movie;
+    private int daysRented;
 
-    public int getDaysRented() {
-        return daysRented;
-    }
-
-    public Movie getMovie() {
-        return movie;
-    }
 }

@@ -19,6 +19,7 @@
         <th>Country</th>
         <th>Description</th>
         <th>Main cast</th>
+        <th>Rent</th>
     </tr>
     </thead>
     <tbody>
@@ -29,6 +30,7 @@
         <td th:text="${movie.country}"></td>
         <td th:text="${movie.shortDescription}"></td>
         <td th:text="${movie.cast}"></td>
+        <td><a th:href="@{/rentMovie(id=${movie.getId()})}">Rent</a></td>
     </tr>
     </tbody>
 </table>

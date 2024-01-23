@@ -1,5 +1,6 @@
 package patterns.example.service;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import patterns.example.model.Movie;
@@ -18,5 +19,9 @@ public class MovieService {
 
     public void addMovie(Movie movie) {
         movieRepository.save(movie);
+    }
+
+    public Movie getMovieById(Long movieId) {
+        return movieRepository.findById(movieId).orElseThrow(() -> new EntityNotFoundException("Movie with id " + movieId + " not found"));
     }
 }
