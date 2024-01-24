@@ -23,7 +23,7 @@ public class MovieController {
     @Value("${countries}")
     private List<String> countries;
 
-    @GetMapping("/")
+    @GetMapping("/movies")
     public String showMovies(Model model) {
         List<Movie> movies = movieService.getMovies();
         model.addAttribute("movies", movies);

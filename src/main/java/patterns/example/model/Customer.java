@@ -1,20 +1,28 @@
 package patterns.example.model;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.List;
 
-class Customer {
-    private final String name;
-    private final List<Rental> rentals;
+@Entity
+@Table(name = "users")
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+public class Customer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+    private String email;
+    private String password;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private List<Rental> rentals;
 
-    public Customer(String name, List<Rental> rentals) {
-        this.name = name;
-        this.rentals = rentals;
-    }
-
-
-    public String getName() {
-        return name;
-    }
 
 //    public String statement() {
 //        double totalAmount = 0;

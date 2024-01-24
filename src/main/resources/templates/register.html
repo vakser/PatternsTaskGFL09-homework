@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+    <h3>Registering a new user.</h3>
+    <form th:object="${customer}" th:action="@{/register}" method="post">
+        <input type="text" placeholder="Enter name" th:field="*{name}" autofocus="autofocus"/>
+        <br><br>
+        <input type="text" placeholder="Enter email" th:field="*{email}" />
+        <br><br>
+        <input type="password" placeholder="Enter password" th:field="*{password}" />
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
