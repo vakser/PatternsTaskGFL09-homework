@@ -5,6 +5,9 @@
     <title>Rent movie</title>
 </head>
 <body>
+    <div>
+        <a th:href="@{/logout}">Logout</a>
+    </div>
     <h3>You are about to rent the movie </h3>
     <p th:text="${movie.title}" th:style="'color: green'"></p>
     <form th:action="@{/addRental}" th:object="${rental}" method="POST">

@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import patterns.example.service.CustomUserDetailsService;
 
 @Configuration
@@ -30,7 +31,11 @@ public class CustomSecurityConfig {
                         .failureUrl("/login?error=true")
                         .defaultSuccessUrl("/movies")
                         .usernameParameter("email")
-                        .passwordParameter("password"));
+                        .passwordParameter("password"))
+                .logout(logout -> logout.invalidateHttpSession(true).clearAuthentication(true)
+                        .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                        .logoutSuccessUrl("/login?logout")
+                        .permitAll());
         return http.build();
     }
 
