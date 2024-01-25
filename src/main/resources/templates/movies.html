@@ -13,6 +13,16 @@
 <br>
 <a th:href="@{/createMovie}">Add new movie</a>
 <hr>
+<form th:action="@{/filterMovies}" method="get" th:object="${filter}">
+    Search: <input type="text" placeholder="Enter a keyword" th:field="*{keyword}"> by
+    <select th:field="*{searchBy}">
+        <option value="title">Title</option>
+        <option value="type">Type</option>
+        <option value="country">Country</option>
+    </select>
+    <input type="submit" value="Search">
+</form>
+<br><br>
 <table>
     <thead>
     <tr>
