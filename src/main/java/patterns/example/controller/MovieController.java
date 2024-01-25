@@ -52,7 +52,7 @@ public class MovieController {
     @PostMapping("/addMovie")
     public String addMovie(Movie movie) {
         movieService.addMovie(movie);
-        return "redirect:/";
+        return "redirect:/movies";
     }
 
     @GetMapping("/filterMovies")

@@ -30,6 +30,6 @@ public class RentalController {
     @PostMapping("/addRental")
     public String addRental(Rental rental) {
         rentalService.addRental(rental);
-        return "redirect:/";
+        return "redirect:/movies";
     }
 }
