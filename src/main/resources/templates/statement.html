@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Statement</title>
+</head>
+<body>
+    <h3>Statement of Rentals</h3>
+    <div>
+        <pre th:text="${statement}"></pre>
+    </div>
+    <br>
+    <a th:href="@{/movies}">Back to the list of movies</a>
+</body>
+</html>

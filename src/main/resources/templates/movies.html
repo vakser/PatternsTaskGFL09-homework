@@ -11,6 +11,8 @@
 </div>
 <a th:href="@{/movies/export/pdf}">Download list of movies as PDF</a>
 <br>
+<a th:href="@{/statement}">View statement of your rentals</a>
+<br>
 <a th:href="@{/createMovie}">Add new movie</a>
 <hr>
 <form th:action="@{/filterMovies}" method="get" th:object="${filter}">

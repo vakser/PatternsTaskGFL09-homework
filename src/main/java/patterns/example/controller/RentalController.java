@@ -32,4 +32,5 @@ public class RentalController {
         rentalService.addRental(rental);
         return "redirect:/movies";
     }
+
 }

@@ -26,4 +26,8 @@ public class RentalService {
         customer.setRentals(rentals);
         rentalRepository.save(rental);
     }
+
+    public List<Rental> getRentalsByCustomerId(Long customerId) {
+        return rentalRepository.findRentalsForCustomer(customerId);
+    }
 }
