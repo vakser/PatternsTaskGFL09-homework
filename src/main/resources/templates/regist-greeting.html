@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Greeting</title>
+</head>
+<body>
+    <div th:if="${successMsg}">
+        <h3>Success!</h3>
+        <p>Thank you for registration. Now you can proceed with login.</p>
+        <a type="button" th:href="@{/login}">Login Now</a>
+    </div>
+</body>
+</html>

@@ -6,14 +6,23 @@
 </head>
 <body>
     <h3>Registering a new user.</h3>
+    <hr>
     <form th:object="${customer}" th:action="@{/register}" method="post">
-        <input type="text" placeholder="Enter name" th:field="*{name}" autofocus="autofocus"/>
+        <label>
+            <input type="text" placeholder="Enter name" th:field="*{name}" autofocus="autofocus"/>
+        </label>
         <br><br>
-        <input type="text" placeholder="Enter email" th:field="*{email}" />
+        <label>
+            <input type="text" placeholder="Enter email" th:field="*{email}" />
+        </label>
         <br><br>
-        <input type="password" placeholder="Enter password" th:field="*{password}" />
+        <label>
+            <input type="password" placeholder="Enter password" th:field="*{password}" />
+        </label>
         <br><br>
         <button type="submit">Submit</button>
     </form>
+    <br>
+    <span>Already registered? - <a th:href="@{/login}">Login</a></span>
 </body>
 </html>

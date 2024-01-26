@@ -31,7 +31,7 @@ public class AuthenticationController {
     public String register(@ModelAttribute("customer") Customer customer, Model model) {
         customerService.saveCustomer(customer);
         model.addAttribute("successMsg", true);
-        return "login";
+        return "regist-greeting";
     }
 
     @GetMapping("/statement")
